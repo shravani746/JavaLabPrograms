@@ -1,0 +1,59 @@
+package demo;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Array_copy_multiD {
+
+	public static void main(String[] args) {
+
+		int[][] array1 = {{1,2,3},{4,5,6},{7,8,9}};
+		
+		int[][] array2 = new int[3][3];
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("By which method do you want to copy the array : ");
+		System.out.println("1. For-each loop.");
+		System.out.println("2. Array copy method");
+		System.out.println("3. For-each loop.");
+		int a = sc.nextInt();
+		switch(a) {
+		case 1:
+			
+			System.out.println("Array copy using for-each loop : ");    
+		    for (int[] i : array1) {       
+		        for (int j : i) {          
+		            System.out.print(j + " "); 
+		        }
+		        System.out.println();   
+		    }
+		    
+		    break;
+		case 2:
+			
+			System.out.println("\n Using Array Copy Method : ");  
+			 
+			 for (int i = 0; i < array1.length; i++) {
+				    System.arraycopy(array1[i], 0, array2[i], 0, array1[i].length);
+				}
+			 System.out.print(Arrays.deepToString(array2));
+			 break;
+			 
+		case 3:
+			
+			System.out.println("\n \n Using copy of range method : ");
+			 for (int i = 0; i < array1.length; i++) {
+				 Arrays.copyOfRange(array1[i], 0,array1.length );
+				}
+			 System.out.print(Arrays.deepToString(array2));
+			 break;
+			 
+		default : 
+			System.out.println("Invalid input");
+			 break;
+		}
+		 
+	}
+}
+
+
